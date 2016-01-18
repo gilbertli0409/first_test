@@ -2,3 +2,4 @@
 This is a test readme file.
 
 i add a comment on my ubuntu.
+test git merge
