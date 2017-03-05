@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @ConfigurationProperties(prefix = "base")
 @Component
+//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class BaseSetting
 {
 	private String name;

@@ -2,10 +2,18 @@ package hello;
 
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.*;
 
+/**
+ * The @SpringBootApplication annotation is equivalent to using @Configuration,
+ @EnableAutoConfiguration and @ComponentScan with their default attributes:
+ */
 @Controller
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
+//@Configuration
+//@ComponentScan
 @SpringBootApplication
 public class SampleApplication {
 
