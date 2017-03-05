@@ -1,18 +1,16 @@
 package hello.services;
 
+import hello.config.BaseSetting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
-import config.BaseSetting;
 
 
 /**
  * Created by lyp on 3/5/2017.
  */
 @Service
-@EnableConfigurationProperties(BaseSetting.class)
 public class SampleService
 {
 	@Autowired

@@ -1,8 +1,6 @@
-package config;
+package hello.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 
@@ -10,6 +8,7 @@ import org.springframework.stereotype.Component;
  * Created by lyp on 3/4/2017.
  */
 @ConfigurationProperties(prefix = "base")
+@Component
 public class BaseSetting
 {
 	private String name;

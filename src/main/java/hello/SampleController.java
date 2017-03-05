@@ -1,19 +1,15 @@
 package hello;
 
-import config.BaseConfig;
-import config.BaseSetting;
 import hello.services.SampleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @EnableAutoConfiguration
-
 @SpringBootApplication
 public class SampleController {
 
@@ -22,11 +18,17 @@ public class SampleController {
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "Hello World!";
+        return "<h1><b>Hello World</b><h1>";
     }
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(SampleController.class, args);
+
+        System.out.println(getSucessMsg());
+    }
+
+    private static String getSucessMsg()
+    {
         StringBuffer doge = new StringBuffer();
         doge.append("░░░░░░░░░▄░░░░░░░░░░░░░░▄").append("\n");
         doge.append("░░░░░░░░▌▒█░░░░░░░░░░░▄▀▒▌").append("\n");
@@ -47,6 +49,7 @@ public class SampleController {
         doge.append("░░░░▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀").append("\n");
         doge.append("░░░░░░▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀").append("\n");
         doge.append("░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀");
-        System.out.println(doge.toString());
+
+        return doge.toString();
     }
 }
