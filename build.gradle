@@ -1,0 +1,86 @@
+
+apply plugin: 'base'
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: "com.bmuschko.tomcat"
+apply plugin: "com.bmuschko.cargo"
+
+ext.tomcatVersion = '7.0.82'
+ext.cargoVersion = '2.2.3'
+
+
+
+buildscript {
+    repositories {
+
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+
+    }
+
+    dependencies {
+        classpath "com.bmuschko:gradle-cargo-plugin:2.2.3"
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.3'
+    }
+}
+
+
+
+repositories {
+
+    jcenter()
+
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+    mavenCentral()
+}
+
+dependencies {
+
+
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+    compile 'org.springframework:spring-webmvc:5.0.1.RELEASE'
+    testCompile 'junit:junit:[4,)'
+    runtime "jstl:jstl:1.2"
+
+
+    def tomcatVersion = '7.0.82'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+}
+
+cargo {
+    containerId = 'tomcat7x'
+    port = 8080
+
+    local {
+        installer {
+            installUrl = "http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.zip"
+            downloadDir = file("$buildDir/download")
+            extractDir = file("$buildDir/extract")
+        }
+        outputFile = file('container/apache-tomcat-7.0.82/output2.log')
+    }
+}
+
+war {
+    version = ''
+}
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.bmuschko:gradle-cargo-plugin:2.2.3"
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.3'
+    }
+
+}

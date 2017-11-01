@@ -1,0 +1,5 @@
+/build
+.idea/
+/lib
+.gradle/
+gradletest.iml
