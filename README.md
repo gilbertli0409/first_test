@@ -1,5 +1,3 @@
-# first_test
-This is a test readme file.
+# Gradle Mvc 
+This is a test proejct to build springmvc with gradle.
 
-i add a comment on my ubuntu.
-test git merge
