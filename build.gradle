@@ -55,7 +55,6 @@ dependencies {
 cargo {
     containerId = 'tomcat7x'
     port = 8080
-
     local {
         installer {
             installUrl = "http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.zip"
@@ -65,6 +64,15 @@ cargo {
         outputFile = file('container/apache-tomcat-7.0.82/output2.log')
     }
 }
+tomcat {
+    httpPort = 8090
+    httpsPort = 8091
+    enableSSL = true
+    contextPath = '/'
+    
+}
+
+
 
 war {
     version = ''
